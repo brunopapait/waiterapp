@@ -16,3 +16,4 @@ Básicamento o objetivo geral de uma API é realizar regras de negócios, valida
 - MongoDB;
 - Mongoose;
 - Multer;
+- ESLint;

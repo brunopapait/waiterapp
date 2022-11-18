@@ -14,3 +14,4 @@ Mostrar em um dashboard as informações dos pedidos do restaurante para os cozi
 - Vite;
 - Typescript;
 - Styled Components;
+- ESLint;
