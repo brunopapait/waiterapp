@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+src/uploads-back
 
 # testing
 /coverage
