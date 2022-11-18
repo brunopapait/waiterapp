@@ -6,7 +6,7 @@ Este é o backend da aplicação, onde irá prover as informações para o front
 
 ## Objetivo
 
-Básicamento oo bjetivo geral de uma API é realizar regras de negócios, validar os dados que vem do frontend/mobile, conectar e buscar informações do banco de dados e prover essas informações ao client(frontend/mobile).
+Básicamento o objetivo geral de uma API é realizar regras de negócios, validar os dados que vem do frontend/mobile, conectar e buscar informações do banco de dados e prover essas informações ao client(frontend/mobile).
 
 ## Tecnologias
 
