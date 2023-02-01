@@ -7,9 +7,12 @@ import { useEffect } from 'react';
 interface OrderModalProps {
   onClose: () => void;
   order: Order | null;
+  onCancelOrder: () => Promise<void>;
+  isLoading: boolean;
+  onChangeOrderStatus: () => Promise<void>;
 }
 
-export function OrderModal({ onClose, order }: OrderModalProps) {
+export function OrderModal({ onClose, order, onCancelOrder, isLoading, onChangeOrderStatus }: OrderModalProps) {
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -27,7 +30,7 @@ export function OrderModal({ onClose, order }: OrderModalProps) {
   }, 0);
 
   return (
-    <Overlay onClick={onClose}>
+    <Overlay>
       <ModalBody>
         <header>
           <strong>Mesa 02</strong>
@@ -83,11 +86,21 @@ export function OrderModal({ onClose, order }: OrderModalProps) {
         </OrderDetails>
 
         <Actions>
-          <button type='button' className='primary'>
-            <span>👨‍🍳</span>
-            <span>Iniciar produção</span>
-          </button>
-          <button type='button' className='secondary'>
+          {
+            order?.status !== 'DONE' && (
+              <button type='button' className='primary' disabled={isLoading} onClick={onChangeOrderStatus}>
+                <span>
+                  {order?.status === 'WAITING' && '👨‍🍳'}
+                  {order?.status === 'IN_PRODUCTION' && '✅'}
+                </span>
+                <strong>
+                  {order?.status === 'WAITING' && 'Iniciar produção'}
+                  {order?.status === 'IN_PRODUCTION' && 'Concluir Pedido'}
+                </strong>
+              </button>
+            )
+          }
+          <button type='button' className='secondary' onClick={onCancelOrder} disabled={isLoading}>
             <span>Cancelar pedido</span>
           </button>
         </Actions>
